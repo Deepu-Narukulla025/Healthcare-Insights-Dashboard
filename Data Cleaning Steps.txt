@@ -1,0 +1,71 @@
+Data Cleaning Steps											
+											
+1. Remove Duplicates – Check for and remove duplicate records.											
+2. Handle Missing Values – Identify missing values and decide whether to fill, remove, or replace them.											
+3. Standardize Data Formats – Ensure consistency in date, text, and numerical formats.											
+4. Fix Inconsistencies – Standardize categorical values (e.g., "Male" vs. "M" vs. "male").											
+5. Remove Extra Spaces – Use TRIM() to clean unwanted spaces in text fields.											
+6. Convert Data Types – Ensure numbers are not stored as text and vice versa.											
+7. Create New Columns (if needed) – Add calculated fields for analysis (e.g., Age Group, Risk Category).											
+											
+This healthcare dataset has 55,500 rows and 15 columns. Before building the dashboard, based on my initial check, here are the key cleaning tasks I followed:											
+											
+1. Remove Duplicates											
+											
+Duplicates can exist if multiple rows have the same details. To remove them:											
+											
+1. Select all the data (Ctrl + A).											
+2. Go to the Data tab → Click Remove Duplicates.											
+3. In the popup, check the columns that should be considered duplicates 											
+5. Click OK.											
+											
+											
+2. Fix Inconsistent Formatting											
+											
+a) Standardizing Text Columns (Names, Gender, Hospital, Doctor, etc.)											
+											
+Names and other text fields have inconsistent capitalization (e.g., "Bobby JacksOn" vs. "LesLie TErRy").											
+Fix: Convert text to proper case.											
+											
+formula:											
+	# =PROPER(A2)										
+											
+For Gender:											
+											
+3. Handle Missing Values											
+											
+checking if dataset has any nulls or blanks											
+											
+For numerical columns (e.g., Billing Amount): Fill with the average.											
+Formula:											
+# =IF(A2="", AVERAGE($A$2:$A$55492), A2)											
+											
+For text columns (e.g., Doctor, Insurance Provider): with "Unknown".											
+											
+											
+4. Converting Dates to Proper Format											
+											
+Columns like Date of Admission and Discharge Date should be in Date Format.											
+											
+1. Select the column.											
+2. Go to the Home tab → Click Number Format → Select Short Date.											
+											
+											
+5. Remove Extra Spaces in Text Fields											
+											
+For fields like Name, Doctor, Hospital, remove leading/trailing spaces.											
+											
+formula:											
+# =TRIM(A2)											
+											
+											
+6. Converting "Billing Amount" to Currency Format											
+											
+Since Billing Amount is in USD, formatting it properly.											
+											
+1. Select the Billing Amount column.											
+2. Click Number Format → Select Currency.											
+											
+7. Created New Columns 											
+											
+Added calculated fields for analysis (e.g., Unique Patient ID, Age Group, Billing Category, Risk Category, Hospital stay duration).											
